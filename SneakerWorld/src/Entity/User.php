@@ -6,11 +6,12 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -40,7 +41,7 @@ class User
     private $Password;
 
     /**
-     * @ORM\OneToMany(targetEntity=CommentSneaker::class, mappedBy="id_ÂUser")
+     * @ORM\OneToMany(targetEntity=CommentSneaker::class, mappedBy="id_ï¿½User")
      */
     private $comment_sneaker;
 
@@ -114,7 +115,7 @@ class User
     {
         if (!$this->comment_sneaker->contains($commentSneaker)) {
             $this->comment_sneaker[] = $commentSneaker;
-            $commentSneaker->setIdÂUser($this);
+            $commentSneaker->setIdï¿½User($this);
         }
 
         return $this;
@@ -124,11 +125,31 @@ class User
     {
         if ($this->comment_sneaker->removeElement($commentSneaker)) {
             // set the owning side to null (unless already changed)
-            if ($commentSneaker->getIdÂUser() === $this) {
-                $commentSneaker->setIdÂUser(null);
+            if ($commentSneaker->getIdï¿½User() === $this) {
+                $commentSneaker->setIdï¿½User(null);
             }
         }
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }

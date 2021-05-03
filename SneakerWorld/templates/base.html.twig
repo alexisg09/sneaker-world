@@ -2,15 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}Sneaker World{% endblock %}</title>
+
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            <link href="{{ asset('resources/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
         {% endblock %}
 
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            <script src="{{ asset('resources/js/jquery.slim.min.js') }}"></script>
+            <script src="{{ asset('resources/js/poppers.min.js') }}"></script>
+            <script src="{{ asset('resources/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('resources/js/holder.min.js') }}"></script>
         {% endblock %}
     </head>
     <body>

@@ -39,11 +39,14 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/profil", name="panel_id")
+     * @Route("/admin/list", name="user.list") * @return Response
      */
-    public function list_user(): Response
+    public function list() : Response
     {
-        return $this->render('user/profil.html.twig');
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+        return $this->render('Admin/listUser.html.twig', [
+            'users' => $users, ]);
     }
+
 
 }

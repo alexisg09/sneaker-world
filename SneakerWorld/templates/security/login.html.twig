@@ -7,10 +7,10 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" onclick="showModalInscription()">Rejoignez-nous !</button>
+                <a class="btn btn-sm btn-outline-secondary" href="/new-user">Rejoignez-nous !</a>
             </div>
             <div class="col-4 text-center">
-                <h2>SneakerWorld</h2>
+                <a href="/panel" style="color: black;"class="display-4">SneakerWorld</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <a href="login" class="btn btn-sm btn-outline-secondary" >Connexion</a>
@@ -39,13 +39,14 @@
         {% if app.user %}
             <div class="mb-3">
                 You are logged in as {{ app.user.nom }}, <a href="{{ path('app_logout') }}">Logout</a>
+                <a href="sneaker">consulter votre compte</a>
             </div>
         {% endif %}
 
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Inscrivez-vous</h5>
+                    <h5 class="card-title">Connectez-vous</h5>
                     <label for="inputEmail">Email</label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
                     <label for="inputPassword">Password</label>

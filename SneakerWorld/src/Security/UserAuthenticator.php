@@ -83,8 +83,12 @@ class UserAuthenticator extends AbstractFormLoginAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
-            return new RedirectResponse($targetPath);
+        $role = [];
+        $role = $token->getUser()->getRoles();
+        if($role[0] == "ROLE_USER") {
+            return new RedirectResponse($this->urlGenerator->generate('sneaker'));
+        }else if($role[0] == "ROLE_ADMIN"){
+            return new RedirectResponse($this->urlGenerator->generate('admin'));
         }
     }
 

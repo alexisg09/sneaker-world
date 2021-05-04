@@ -29,10 +29,6 @@ class Sneaker
      */
     private $couleur;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $Prix;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -48,6 +44,11 @@ class Sneaker
      * @ORM\OneToMany(targetEntity=CommentSneaker::class, mappedBy="id_sneaker")
      */
     private $comment_sneaker;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
 
     public function __construct()
     {
@@ -83,17 +84,6 @@ class Sneaker
         return $this;
     }
 
-    public function setPrix(string $prix): self
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
-    public function getPrix(): ?float
-    {
-        return $this->Prix;
-    }
 
     public function getMarque(): ?string
     {
@@ -145,6 +135,18 @@ class Sneaker
                 $commentSneaker->setIdSneaker(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(int $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

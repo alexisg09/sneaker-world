@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-    {% block body %}
-
+{% block body %}
     <div class="container">
         <header class="blog-header py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 pt-1">
-                    <button class="btn btn-sm btn-outline-secondary">Bonjour {{ app.user.prenom }} !</button>
+                    <a href="/admin" style="color: black;"class="display-5">Espace Administrateur</a>
                 </div>
                 <div class="col-4 text-center">
                     <h2>SneakerWorld</h2>
@@ -32,8 +31,21 @@
             </nav>
         </div>
     </div>
-    {% endblock %}
+
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Ajouter une Sneaker</h5>
+                {{ form_start(form) }}
+                {{ form_row(form) }}
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
 
 
-
-
+{% endblock %}

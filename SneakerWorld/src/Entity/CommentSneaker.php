@@ -30,7 +30,7 @@ class CommentSneaker
     private $commentaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comment_sneaker")
      * @ORM\JoinColumn(nullable=false)
      */
     private $id_user;

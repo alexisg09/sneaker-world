@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-    {% block body %}
-
+{% block body %}
     <div class="container">
         <header class="blog-header py-3">
             <div class="row flex-nowrap justify-content-between align-items-center">
                 <div class="col-4 pt-1">
-                    <button class="btn btn-sm btn-outline-secondary">Bonjour {{ app.user.prenom }} !</button>
+                    <a href="/admin" style="color: black;"class="display-5">Espace Administrateur</a>
                 </div>
                 <div class="col-4 text-center">
                     <h2>SneakerWorld</h2>
@@ -32,8 +31,29 @@
             </nav>
         </div>
     </div>
-    {% endblock %}
+
+    <main role="main" class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Email</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Nom</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th>{{ user.email }}</th>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.nom }}</td>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
 
 
-
-
+{% endblock %}

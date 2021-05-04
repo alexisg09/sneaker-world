@@ -41,9 +41,15 @@ class User implements UserInterface
     private $Password;
 
     /**
-     * @ORM\OneToMany(targetEntity=CommentSneaker::class, mappedBy="id_�User")
+     * @ORM\OneToMany(targetEntity=CommentSneaker::class, mappedBy="id_user")
      */
     private $comment_sneaker;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $roles = 'ROLE_USER';
+
 
     public function __construct()
     {
@@ -115,7 +121,7 @@ class User implements UserInterface
     {
         if (!$this->comment_sneaker->contains($commentSneaker)) {
             $this->comment_sneaker[] = $commentSneaker;
-            $commentSneaker->setId�User($this);
+            $commentSneaker->setIdUser($this);
         }
 
         return $this;
@@ -125,8 +131,8 @@ class User implements UserInterface
     {
         if ($this->comment_sneaker->removeElement($commentSneaker)) {
             // set the owning side to null (unless already changed)
-            if ($commentSneaker->getId�User() === $this) {
-                $commentSneaker->setId�User(null);
+            if ($commentSneaker->getIdUser() === $this) {
+                $commentSneaker->setIdUser(null);
             }
         }
 
@@ -135,7 +141,13 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $role = [];
+        $role[] = $roles;
+
+        return array_unique($role);
+
     }
 
     public function getSalt()
@@ -152,4 +164,13 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+    public function setRoles(string $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+
 }

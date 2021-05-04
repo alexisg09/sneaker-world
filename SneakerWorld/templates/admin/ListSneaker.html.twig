@@ -40,6 +40,7 @@
                     <th scope="col">Marque</th>
                     <th scope="col">Couleur</th>
                     <th scope="col">Prix</th>
+                    <th scope="col">Stock</th>
                     <th scope="col">Image</th>
                 </tr>
                 </thead>
@@ -49,6 +50,7 @@
                     <th>{{ sneaker.marque }}</th>
                     <td>{{ sneaker.couleur }}</td>
                     <td>{{ sneaker.price }}</td>
+                    <td>{{ sneaker.stock }}</td>
                     <td><img src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="sneakers" width="200" height="200"></td>
 
                     {% endfor %}

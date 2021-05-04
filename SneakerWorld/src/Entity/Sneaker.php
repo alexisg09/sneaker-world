@@ -50,6 +50,11 @@ class Sneaker
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
     public function __construct()
     {
         $this->comment_sneaker = new ArrayCollection();
@@ -147,6 +152,18 @@ class Sneaker
     public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }

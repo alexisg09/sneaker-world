@@ -22,6 +22,7 @@ class SneakerType extends AbstractType
             ->add('price',MoneyType::class)
             ->add('datePublish',DateType::class)
             ->add('Marque',TextType::class)
+            ->add('stock',TextType::class)
             ->add('image',FileType::class, [
                 'label' => 'Image (jpeg file)',
 

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
+use App\Entity\Sneaker;
 use App\Form\UserType;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
@@ -47,6 +48,32 @@ class UserController extends AbstractController
         return $this->render('Admin/listUser.html.twig', [
             'users' => $users, ]);
     }
+
+    /**
+     * @Route("/sneaker/user/liste", name="app_liste_sneaker_users") * @return Response
+     */
+
+    public function liste() : Response
+    {
+        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
+        $sneakerLike = [];
+        $notexists = false;
+        foreach($sneakers as $sneaker ){
+            $likes = $sneaker->getLikeSneakers();
+            foreach($likes as $like){
+                if($like->getIdUser()->getId() == $this->getUser()->getId()){
+                    $notexists = true;
+                }
+                if($notexists){
+                    $sneakerLike[] = $sneaker;
+                }
+            }
+        }
+        return $this->render('User/listeSneakerUser.html.twig', [
+            'sneakerLike' => $sneakerLike, ]);
+    }
+
+
 
 
 }

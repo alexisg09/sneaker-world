@@ -23,16 +23,21 @@ class LikeSneaker
      */
     private $id_User;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Sneaker::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $id_sneaker;
 
     /**
      * @ORM\Column(type="date")
      */
     private $publishDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Sneaker::class, inversedBy="likeSneakers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $sneaker;
+
+    public function __construct(){
+        $this->publishDate = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -51,17 +56,6 @@ class LikeSneaker
         return $this;
     }
 
-    public function getIdSneaker(): ?Sneaker
-    {
-        return $this->id_sneaker;
-    }
-
-    public function setIdSneaker(?Sneaker $id_sneaker): self
-    {
-        $this->id_sneaker = $id_sneaker;
-
-        return $this;
-    }
 
     public function getPublishDate(): ?\DateTimeInterface
     {
@@ -71,6 +65,18 @@ class LikeSneaker
     public function setPublishDate(\DateTimeInterface $publishDate): self
     {
         $this->publishDate = $publishDate;
+
+        return $this;
+    }
+
+    public function getSneaker(): ?Sneaker
+    {
+        return $this->sneaker;
+    }
+
+    public function setSneaker(?Sneaker $sneaker): self
+    {
+        $this->sneaker = $sneaker;
 
         return $this;
     }

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\LikeSneaker;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method LikeSneaker|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,18 @@ class LikeSneakerRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, LikeSneaker::class);
+    }
+
+    public function removeLike($idUser, $id_sneaker){
+        $query = $this->createQueryBuilder('l')
+            ->select('l')
+            ->where('l.sneaker = :idsneaker')
+            ->andWhere('l.id_User = :iduser')
+            ->setParameter('idsneaker', $id_sneaker)
+            ->setParameter('iduser', $idUser);
+
+        return $query->getQuery()->getResult();
+
     }
 
     // /**

@@ -55,9 +55,20 @@ class Sneaker
      */
     private $stock;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\OneToMany(targetEntity=LikeSneaker::class, mappedBy="sneaker", orphanRemoval=true)
+     */
+    private $likeSneakers;
+
     public function __construct()
     {
         $this->comment_sneaker = new ArrayCollection();
+        $this->likeSneakers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -164,6 +175,48 @@ class Sneaker
     public function setStock(int $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LikeSneaker[]
+     */
+    public function getLikeSneakers(): Collection
+    {
+        return $this->likeSneakers;
+    }
+
+    public function addLikeSneaker(LikeSneaker $likeSneaker): self
+    {
+        if (!$this->likeSneakers->contains($likeSneaker)) {
+            $this->likeSneakers[] = $likeSneaker;
+            $likeSneaker->setSneaker($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLikeSneaker(LikeSneaker $likeSneaker): self
+    {
+        if ($this->likeSneakers->removeElement($likeSneaker)) {
+            // set the owning side to null (unless already changed)
+            if ($likeSneaker->getSneaker() === $this) {
+                $likeSneaker->setSneaker(null);
+            }
+        }
 
         return $this;
     }

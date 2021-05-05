@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Entity\Sneaker;
+use App\Entity\LikeSneaker;
 use App\Form\SneakerType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,8 +20,9 @@ class SneakerController extends AbstractController
      */
     public function index(): Response
     {
+        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
         return $this->render('sneaker/index.html.twig', [
-            'controller_name' => 'SneakerController',
+            'sneakers' => $sneakers,
         ]);
     }
     /**
@@ -71,10 +73,12 @@ class SneakerController extends AbstractController
     /**
      * @Route("/admin/list/sneaker", name="sneaker.list") * @return Response
      */
-    public function list() : Response
+    public function list(EntityManagerInterface $em) : Response
     {
         $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
         return $this->render('Admin/listSneaker.html.twig', [
             'sneakers' => $sneakers, ]);
     }
+
+
 }

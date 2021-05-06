@@ -35,6 +35,11 @@ class CommentSneaker
      */
     private $id_user;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +78,18 @@ class CommentSneaker
     public function setIdUser(?User $id_user): self
     {
         $this->id_user = $id_user;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
 
         return $this;
     }

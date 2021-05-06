@@ -48,7 +48,7 @@
                                 <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} aiment ça</h6>
                                 <h5 class="card-text">{{ sneaker.price }}€</h5>
                                 <a class="btn btn-primary" href="{{ path('add', {id:sneaker.id}) }}">Aimer</a>
-                                <a class="btn btn-primary" href="{{ path('comment', {id:sneaker.id}) }}">voir les commentaires</a>
+                                <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id}) }}">voir les commentaires</a>
                             </div>
                         </div>
                     </div>

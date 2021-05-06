@@ -25,8 +25,12 @@ class SneakerController extends AbstractController
             'sneakers' => $sneakers,
         ]);
     }
+
     /**
      * @Route("/admin/add", name="admin_sneaker_add")
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function new(Request $request, EntityManagerInterface $em)
     {
@@ -72,6 +76,8 @@ class SneakerController extends AbstractController
 
     /**
      * @Route("/admin/list/sneaker", name="sneaker.list") * @return Response
+     * @param EntityManagerInterface $em
+     * @return Response
      */
     public function list(EntityManagerInterface $em) : Response
     {
@@ -79,6 +85,8 @@ class SneakerController extends AbstractController
         return $this->render('Admin/listSneaker.html.twig', [
             'sneakers' => $sneakers, ]);
     }
+
+
 
 
 }

@@ -26,6 +26,9 @@ class LikeController extends AbstractController
 
     /**
      * @Route("/add/{id}", name="add")
+     * @param EntityManagerInterface $em
+     * @param Sneaker $sneaker
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
 
     public function new(EntityManagerInterface $em, Sneaker $sneaker)

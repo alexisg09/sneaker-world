@@ -3,21 +3,23 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Entity\Sneaker;
 use App\Form\UserType;
-use Symfony\Component\Routing\Annotation\Route;
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+
 
 class UserController extends AbstractController
 {
     /**
-     * Créer un nouveau useer.
-     * @Route("/new-user", name="new-user")
+     * Créer un nouveau user.
+     * @Route("/panel/ajouterUser", name="ajouterUser")
+     * @param UserPasswordEncoderInterface $encoder
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return Response

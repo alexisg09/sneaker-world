@@ -2,30 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\User;
+use App\Entity\CommentSneaker;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class UserType extends AbstractType
+class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('password', PasswordType::class)
+            ->add('commentaire', TextType::class, array(
+                'label'   => false,
+                'attr' => array(
+                    'placeholder' => 'Entrez votre commentaire ..'
+                )
+            ))
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => CommentSneaker::class,
         ]);
     }
 }

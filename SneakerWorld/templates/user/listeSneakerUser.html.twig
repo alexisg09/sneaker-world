@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-    {% block body %}
+{% block body %}
 
     <div style="margin: 0 65px 0 65px;">
         <header class="blog-header py-3">
@@ -12,7 +12,7 @@
                     <h2>SneakerWorld</h2>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a style="margin: 0 65px 0 65px;" href="{{ path('app_liste_sneaker_users') }}" class="btn btn-sm btn-outline-secondary" >Voir ma liste</a>
+                    <a style="margin: 0 65px 0 65px;" href="{{ path('sneaker') }}" class="btn btn-sm btn-outline-secondary" >retour</a>
                     <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-secondary" > Deconnexion </a>
                 </div>
 
@@ -36,28 +36,27 @@
             </nav>
         </div>
     </div>
-        <br><br>
-        <div class="container">
-            <div class="row">
-                {% for sneaker in sneakers %}
-                    <div class="col-12 col-md-4">
-                        <div class="card" style="margin: 0 0 65px 0;">
-                            <img class="card-img-top" src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ sneaker.nom }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} aiment ça</h6>
-                                <h5 class="card-text">{{ sneaker.price }}€</h5>
-                                <a class="btn btn-primary" href="{{ path('add', {id:sneaker.id}) }}">Aimer</a>
-                                <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id}) }}">voir les commentaires</a>
-                            </div>
-                        </div>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            {% for sneaker in sneakerLike %}
+            <div class="col-12 col-md-4">
+                <div class="card" style="margin: 0 0 65px 0;">
+                    <img class="card-img-top" src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sneaker.nom }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} aiment ça</h6>
+                        <h5 class="card-text">{{ sneaker.price }}€</h5>
+                        <a class="btn btn-primary" href="{{ path('delete', {id:sneaker.id}) }}">retirer</a>
                     </div>
-                    <br>
-                {% endfor %}
+                </div>
             </div>
+            <br>
+            {% endfor %}
         </div>
+    </div>
 
-    {% endblock %}
+{% endblock %}
 
 
 

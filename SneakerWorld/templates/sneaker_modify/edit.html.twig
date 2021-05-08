@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    {{ include('sneaker_modify/_form.html.twig', {'button_label': 'Update'}) }}
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <a href="{{ path('sneaker.list') }}"><button class="btn btn-primary">back to list</button></a>
+        </div>
+    </div>
+</div>
+
+    {{ include('sneaker_modify/_delete_form.html.twig') }}
+{% endblock %}

@@ -10,6 +10,7 @@
 
         {% block stylesheets %}
             <link href="{{ asset('resources/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('resources/css/customstyle.css') }}" type="text/css" rel="stylesheet" />
             <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
         {% endblock %}
 
@@ -20,7 +21,7 @@
             <script src="{{ asset('resources/js/holder.min.js') }}"></script>
         {% endblock %}
     </head>
-    <body>
+    <body style=" background-color: #f9f9f9">
         {% block body %}{% endblock %}
     </body>
 </html>

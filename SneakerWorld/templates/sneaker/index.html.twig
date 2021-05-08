@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <a style="margin: 0 65px 0 65px;" href="{{ path('app_liste_sneaker_users') }}" class="btn btn-sm btn-outline-secondary" >Voir ma liste</a>
-                    <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-secondary" > Deconnexion </a>
+                    <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-secondary logoutCustom" > Deconnexion </a>
                 </div>
 
 
@@ -41,7 +41,7 @@
             <div class="row">
                 {% for sneaker in sneakers %}
                     <div class="col-12 col-md-4">
-                        <div class="card" style="margin: 0 0 65px 0;">
+                        <div class="card cardCustom">
                             <img class="card-img-top" src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ sneaker.nom }}</h5>

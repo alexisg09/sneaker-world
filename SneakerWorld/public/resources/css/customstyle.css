@@ -1,0 +1,26 @@
+.cardCustom {
+    margin: 0 0 65px 0;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 9px 9px 18px #bebebe,
+    -9px -9px 18px #dadada;
+}
+
+.logoutCustom {
+    border-radius: 25px;
+    background: #f9f9f9;
+    padding: 5px 10px;
+    box-shadow: 5px 5px 17px #b1b1b1,
+    -5px -5px 17px #ffffff;
+    border: none;
+}
+
+.logoutCustom:hover {
+    border-radius:25px;
+    background: linear-gradient(145deg, #e0e0e0, #ffffff);
+    box-shadow:  5px 5px 17px #b1b1b1,
+    -5px -5px 17px #ffffff;
+    border: none;
+    color: #6C757D;
+    transition: all 1s ease-out;
+}

@@ -27,6 +27,29 @@ class SneakerController extends AbstractController
     }
 
     /**
+     * @Route("/sneaker/{marque}", name="sneaker_marque")
+     *
+     */
+    public function brandSortedIndex(string $marque): Response
+    {
+        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findBy(['Marque' => $marque]);
+        return $this->render('sneaker/indexsorted.html.twig', [
+            'sneakers' => $sneakers,
+        ]);
+    }
+    /**
+     * @Route("/sneaker/tendances", name="sneaker_trend")
+     *
+     */
+    public function trendIndex(): Response
+    {
+        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findBy([], ['likeSneakers' => 'ASC']);
+        return $this->render('sneaker/indextrend.html.twig', [
+            'sneakers' => $sneakers,
+        ]);
+    }
+
+    /**
      * @Route("/admin/add", name="admin_sneaker_add")
      * @param Request $request
      * @param EntityManagerInterface $em

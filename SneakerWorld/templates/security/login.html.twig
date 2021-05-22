@@ -6,9 +6,17 @@
 <div class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="btn btn-sm btn-outline-secondary" href="{{ path('ajouterUser') }}">Rejoignez-nous !</a>
-            </div>
+            {% if app.user %}
+                <div class="col-4 pt-1">
+                    <button class="btn btn-sm btn-outline-secondary">Bonjour {{ app.user.prenom }} !</button>
+                </div>
+            {% endif %}
+            {% if app.user == false %}
+                <div class="col-4 pt-1">
+                    <a class="btn btn-sm btn-outline-secondary" href="{{ path('ajouterUser') }}">Rejoignez-nous !</a>
+                </div>
+            {% endif %}
+
             <div class="col-4 text-center">
                 <a href="/panel" style="color: black;"class="display-4">SneakerWorld</a>
             </div>
@@ -38,8 +46,8 @@
 
         {% if app.user %}
             <div class="mb-3">
-                You are logged in as {{ app.user.nom }}, <a href="{{ path('app_logout') }}">Logout</a>
-                <a href="sneaker">Consultez votre compte</a>
+                You are logged in as {{ app.user.nom }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+{#                <a href="sneaker">Consultez votre compte</a>#}
             </div>
         {% endif %}
 

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\Sneaker;
 use App\Entity\LikeSneaker;
 use App\Form\SneakerType;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,6 +29,32 @@ class SneakerController extends AbstractController
     }
 
     /**
+     * @Route("/sneaker/tendances", name="sneaker_trend")
+     *
+     */
+
+    public function trendIndex(): Response
+    {
+        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
+        return $this->render('sneaker/indextrend.html.twig', [
+            'sneakers' => $sneakers,
+        ]);
+    }
+
+
+    /**
+     * @Route("/sneaker/nouveautes", name="nouveautes")
+     *
+     */
+    public function newsIndex(): Response
+    {
+        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
+        return $this->render('sneaker/indexnews.html.twig', [
+            'sneakers' => $sneakers,
+        ]);
+    }
+
+    /**
      * @Route("/sneaker/{marque}", name="sneaker_marque")
      *
      */
@@ -37,17 +65,9 @@ class SneakerController extends AbstractController
             'sneakers' => $sneakers,
         ]);
     }
-    /**
-     * @Route("/sneaker/tendances", name="sneaker_trend")
-     *
-     */
-    public function trendIndex(): Response
-    {
-        $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findBy([], ['likeSneakers' => 'ASC']);
-        return $this->render('sneaker/indextrend.html.twig', [
-            'sneakers' => $sneakers,
-        ]);
-    }
+
+
+
 
     /**
      * @Route("/admin/add", name="admin_sneaker_add")
@@ -69,7 +89,7 @@ class SneakerController extends AbstractController
                 $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 //$safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-                $newFilename = $originalFilename.'-'.uniqid().'.'.$image->guessExtension();
+                $newFilename = $originalFilename . '-' . uniqid() . '.' . $image->guessExtension();
 
                 // Move the file to the directory where brochures are stored
                 try {
@@ -102,11 +122,11 @@ class SneakerController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function list(EntityManagerInterface $em) : Response
+    public function list(EntityManagerInterface $em): Response
     {
         $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
         return $this->render('Admin/listSneaker.html.twig', [
-            'sneakers' => $sneakers, ]);
+            'sneakers' => $sneakers,]);
     }
 
 

@@ -8,18 +8,21 @@
     <div class="container">
         <div class="row">
             {% for sneaker in sneakerLike %}
-            <div class="col-12 col-md-4">
-                <div class="card" style="margin: 0 0 65px 0;">
-                    <img class="card-img-top" src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ sneaker.nom }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} aiment ça</h6>
-                        <h5 class="card-text">{{ sneaker.price }}€</h5>
-                        <a class="btn btn-primary" href="{{ path('delete', {id:sneaker.id}) }}">retirer</a>
+                <div class="col-12 col-md-4">
+                    <div class="card cardCustom" style="margin: 0 0 65px 0;">
+                        <img class="card-img-top" width="auto"
+                             height="200"
+                             style="width: auto ; height: 200px; object-fit: cover;"
+                             src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ sneaker.nom }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} {{ 'commont.onlike'|trans }}</h6>
+                            <h5 class="card-text">{{ sneaker.price }}€</h5>
+                            <a class="btn btn-primary" href="{{ path('delete', {id:sneaker.id}) }}">{{ 'button.retirer'|trans }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
+                <br>
             {% endfor %}
         </div>
     </div>

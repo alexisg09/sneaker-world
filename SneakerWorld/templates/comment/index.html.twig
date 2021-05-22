@@ -14,9 +14,9 @@
                     <img class="card-img-top" src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ sneaker.nom }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} aiment ça</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} {{ 'common.ontlike'|trans }}</h6>
                         <h5 class="card-text">{{ sneaker.price }}€</h5>
-                        <p class="card-text"> Liste des commentaires :</p>
+                        <p class="card-text"> {{ 'common.listecomm'|trans }} :</p>
                         {% for comment in comments %}
                             <p><b>{{ comment.prenom }} dit : </b><br> {{ comment.commentaire }}</p>
 
@@ -24,7 +24,7 @@
                         {{ form_start(form) }}
                         {{ form_row(form) }}
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" href="{{ path('comment.sneaker', {id:sneaker.id}) }}" >Enregistrer</button>
+                            <button type="submit" class="btn btn-primary" href="{{ path('comment.sneaker', {id:sneaker.id}) }}" >{{ 'common.enregistrer'|trans }}</button>
                         </div>
                         {{ form_end(form) }}
                     </div>

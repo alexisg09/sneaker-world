@@ -1,51 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
 
-
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-                <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Nike'}) }}">Nike</a>
-                <a class="p-2 text-muted" href="#">Jordan</a>
-                <a class="p-2 text-muted" href="#">Adidas</a>
-                <a class="p-2 text-muted" href="#">Tendances</a>
-                <a class="p-2 text-muted" href="#">Asics</a>
-                <a class="p-2 text-muted" href="#">Converse</a>
-                <a class="p-2 text-muted" href="#">Comme Des Garçons</a>
-                <a class="p-2 text-muted" href="#">Off White</a>
-                <a class="p-2 text-muted" href="#">Featuring</a>
-                <a class="p-2 text-muted" href="#">Occasion</a>
-            </nav>
-        </div>
-    </div>
-
-    <main role="main" class="container">
+{% include './/common/headeradmin.html.twig' %}
+    <main role="main" class="container" style="margin-top: 25px">
         <div class="row">
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">liste des actions possible</th>
-                    <th scope="col">operation</th>
+                    <th scope="col">{{ 'admin.actionspossibles'|trans }}</th>
+                    <th scope="col">{{ 'admin.ope'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Consulter la liste des utilisateurs</td>
-                    <td><a href="{{ path('user.list') }}">Consulter</a></td>
+                    <td>{{ 'admin.seeuser'|trans }}</td>
+                    <td><a href="{{ path('user.list') }}">{{ 'admin.consulter'|trans }}</a></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>Gerer la liste des Produits</td>
-                    <td><a href="{{ path('sneaker.list') }}">Consulter</a></td>
+                    <td>{{ 'admin.manageproduct'|trans }}</td>
+                    <td><a href="{{ path('sneaker.list') }}">{{ 'admin.consulter'|trans }}</a></td>
 
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    <td>Ajouter une Sneakers</td>
-                    <td><a href="{{ path('admin_sneaker_add') }}">Ajouter</a></td>
+                    <td>{{ 'admin.addsneaker'|trans }}</td>
+                    <td><a href="{{ path('admin_sneaker_add') }}">{{ 'admin.add'|trans }}</a></td>
 
                 </tr>
                 </tbody>

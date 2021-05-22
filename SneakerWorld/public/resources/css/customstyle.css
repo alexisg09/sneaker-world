@@ -6,7 +6,7 @@
     -9px -9px 18px #dadada;
 }
 
-.logoutCustom {
+.btnCustom {
     border-radius: 25px;
     background: #f9f9f9;
     padding: 5px 10px;
@@ -15,7 +15,7 @@
     border: none;
 }
 
-.logoutCustom:hover {
+.btnCustom:hover {
     border-radius:25px;
     background: linear-gradient(145deg, #e0e0e0, #ffffff);
     box-shadow:  5px 5px 17px #b1b1b1,

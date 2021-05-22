@@ -1,36 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <header class="blog-header py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-                    <a href="/admin" style="color: black;"class="display-5">Espace Administrateur</a>
-                </div>
-                <div class="col-4 text-center">
-                    <h2>SneakerWorld</h2>
-                </div>
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-secondary" >Deconnexion</a>
-                </div>
-            </div>
-        </header>
+    {% include './/common/headeradmin.html.twig' %}
 
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-                <a class="p-2 text-muted" href="#">Nike</a>
-                <a class="p-2 text-muted" href="#">Jordan</a>
-                <a class="p-2 text-muted" href="#">Adidas</a>
-                <a class="p-2 text-muted" href="#">Tendances</a>
-                <a class="p-2 text-muted" href="#">Asics</a>
-                <a class="p-2 text-muted" href="#">Converse</a>
-                <a class="p-2 text-muted" href="#">Comme Des Garçons</a>
-                <a class="p-2 text-muted" href="#">Off White</a>
-                <a class="p-2 text-muted" href="#">Featuring</a>
-                <a class="p-2 text-muted" href="#">Occasion</a>
-            </nav>
-        </div>
-    </div>
 
     <main role="main" class="container">
         <div class="row">
@@ -38,18 +10,18 @@
                 <thead>
                 <tr>
                     <th scope="col">Email</th>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Nom</th>
+                    <th scope="col">{{ 'common.prenom'|trans }}</th>
+                    <th scope="col">{{ 'common.nom'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for user in users %}
-                    <tr>
-                        <th>{{ user.email }}</th>
-                        <td>{{ user.prenom }}</td>
-                        <td>{{ user.nom }}</td>
+                <tr>
+                    <th>{{ user.email }}</th>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.nom }}</td>
 
-                {% endfor %}
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

@@ -2,21 +2,24 @@
 
     {% block body %}
 
-   {% include './/common/header.html.twig' %}
+        {% include './/common/header.html.twig' %}
         <br><br>
         <div class="container">
             <div class="row">
-                {% for sneaker in sneakers |sort((a, b) => a.datePublish <=> b.datePublish) | reverse%}
+                {% for sneaker in sneakers |sort((a, b) => a.datePublish <=> b.datePublish) | reverse %}
                     <div class="col-12 col-md-4">
-                        <div class="card cardCustom">
-                            <img class="card-img-top" src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
+                        <div class="card cardCustom" style="margin: 0 0 65px 0;">
+                            <img class="card-img-top" width="auto"
+                                 height="200"
+                                 style="width: auto ; height: 200px; object-fit: cover;"
+                                 src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ sneaker.nom }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} aiment ça</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} {{'common.ontlike'|trans}}</h6>
                                 <h5 class="card-text">{{ sneaker.price }}€</h5>
                                 <h5 class="card-text">{{ sneaker.datePublish | date("d/m/Y") }}</h5>
-                                <a class="btn btn-primary" href="{{ path('add', {id:sneaker.id}) }}">Aimer</a>
-                                <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id}) }}">voir les commentaires</a>
+                                <a class="btn btn-primary" href="{{ path('add', {id:sneaker.id}) }}">{{ 'button.aimer'|trans }}</a>
+                                <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id}) }}">{{ 'button.commentaires'|trans }}</a>
                             </div>
                         </div>
                     </div>

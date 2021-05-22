@@ -16,7 +16,7 @@ class CommentType extends AbstractType
             ->add('commentaire', TextType::class, array(
                 'label'   => false,
                 'attr' => array(
-                    'placeholder' => 'Entrez votre commentaire ..'
+                    'placeholder' => 'Entrez votre commentaire ...'
                 )
             ))
         ;

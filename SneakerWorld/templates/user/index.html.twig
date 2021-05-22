@@ -8,11 +8,11 @@
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Inscrivez-vous</h5>
+                    <h5 class="card-title">{{ 'header.rejoignez'|trans }}</h5>
                         {{ form_start(form) }}
                         {{ form_widget(form) }}
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            <button type="submit" class="btn btn-primary">{{ 'common.enregistrer'|trans }}</button>
                         </div>
                         {{ form_end(form) }}
                 </div>

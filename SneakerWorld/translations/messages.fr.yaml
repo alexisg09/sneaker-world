@@ -1,0 +1,47 @@
+header.bonjour: Bonjour
+header.voirListe: Voir la liste
+header.deconnexion: Déconnexion
+header.connexion: Connexion
+header.tendances: Tendances
+header.nouveautes: Nouveautés
+header.rejoignez: Rejoignez-nous !
+header.admin: Espace Administrateur
+
+
+button.aimer: Aimer
+button.commentaires: Commentaires
+button.retirer: Retirer
+button.modifsneaker: Modifier une sneaker
+button.modifier: Modifier
+button.retourliste: Retour à la liste
+
+
+common.ontlike: aiment ça
+common.listecomm: Liste des commentaires
+common.dit: dit
+common.enregister: Enregistrer
+common.loggedas: Vous êtes connecté sous le nom de
+common.nom: Nom
+common.prenom: Prénom
+
+
+form.inscrivez: Inscrivez-vous
+form.nom: Nom
+form.prenom: Prénom
+form.mdp: Mot de passe
+
+admin.addsneaker: Ajouter une sneaker
+admin.actionspossibles: Liste des actions possibles
+admin.ope: Opérations
+admin.seeuser: Consulter la liste des utilisateurs
+admin.consulter: Consulter
+admin.manageproduct: Gérer la liste des produits
+admin.add: Ajouter
+
+sneaker.marque: Marque
+sneaker.couleur: Couleur
+sneaker.prix: Prix
+sneaker.stock: Stock
+sneaker.image: Image
+sneaker.modifier: Modifier
+sneaker.supprimer: Supprimer

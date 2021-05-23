@@ -4,6 +4,7 @@
     {% include './/common/headeradmin.html.twig' %}
 
     <div class="container">
+        <a href="{{ path('admin', {'_locale': app.request.locale}) }}">{{ 'button.retourliste'|trans }}</a>
         <div class="d-flex justify-content-center">
             <div class="card" style="width: auto;">
                 <div class="card-body">

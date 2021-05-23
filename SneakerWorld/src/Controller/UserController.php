@@ -42,7 +42,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/list", name="user.list") * @return Response
+     * @Route("{_locale}/admin/list", name="user.list") * @return Response
      */
     public function list() : Response
     {
@@ -52,7 +52,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/sneaker/user/liste", name="app_liste_sneaker_users") * @return Response
+     * @Route("{_locale}/sneaker/user/liste", name="app_liste_sneaker_users") * @return Response
      */
 
     public function liste() : Response

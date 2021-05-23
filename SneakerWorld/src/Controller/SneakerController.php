@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SneakerController extends AbstractController
 {
     /**
-     * @Route("/sneaker", name="sneaker")
+     * @Route("{_locale}/sneaker", name="sneaker")
      *
      */
     public function index(): Response
@@ -29,7 +29,7 @@ class SneakerController extends AbstractController
     }
 
     /**
-     * @Route("/sneaker/tendances", name="sneaker_trend")
+     * @Route("{_locale}/sneaker/tendances", name="sneaker_trend")
      *
      */
 
@@ -43,7 +43,7 @@ class SneakerController extends AbstractController
 
 
     /**
-     * @Route("/sneaker/nouveautes", name="nouveautes")
+     * @Route("{_locale}/sneaker/nouveautes", name="nouveautes")
      *
      */
     public function newsIndex(): Response
@@ -55,7 +55,7 @@ class SneakerController extends AbstractController
     }
 
     /**
-     * @Route("/sneaker/{marque}", name="sneaker_marque")
+     * @Route("{_locale}/sneaker/{marque}", name="sneaker_marque")
      *
      */
     public function brandSortedIndex(string $marque): Response
@@ -70,7 +70,7 @@ class SneakerController extends AbstractController
 
 
     /**
-     * @Route("/admin/add", name="admin_sneaker_add")
+     * @Route("{_locale}/admin/add", name="admin_sneaker_add")
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
@@ -118,7 +118,7 @@ class SneakerController extends AbstractController
     }
 
     /**
-     * @Route("/admin/list/sneaker", name="sneaker.list") * @return Response
+     * @Route(" {_locale}/admin/list/sneaker", name="sneaker.list") * @return Response
      * @param EntityManagerInterface $em
      * @return Response
      */

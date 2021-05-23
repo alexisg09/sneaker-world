@@ -17,18 +17,18 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>{{ 'admin.seeuser'|trans }}</td>
-                    <td><a href="{{ path('user.list') }}">{{ 'admin.consulter'|trans }}</a></td>
+                    <td><a href="{{ path('user.list', {'_locale': app.request.locale}) }}">{{ 'admin.consulter'|trans }}</a></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td>{{ 'admin.manageproduct'|trans }}</td>
-                    <td><a href="{{ path('sneaker.list') }}">{{ 'admin.consulter'|trans }}</a></td>
+                    <td><a href="{{ path('sneaker.list', {'_locale': app.request.locale}) }}">{{ 'admin.consulter'|trans }}</a></td>
 
                 </tr>
                 <tr>
                     <th scope="row">3</th>
                     <td>{{ 'admin.addsneaker'|trans }}</td>
-                    <td><a href="{{ path('admin_sneaker_add') }}">{{ 'admin.add'|trans }}</a></td>
+                    <td><a href="{{ path('admin_sneaker_add', {'_locale': app.request.locale}) }}">{{ 'admin.add'|trans }}</a></td>
 
                 </tr>
                 </tbody>

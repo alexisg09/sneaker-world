@@ -6,6 +6,12 @@
         <br><br>
         <div class="container">
             <div class="row">
+                {% if sneakers | length == 0 %}
+                    <div style="display: flex; flex-direction: column">
+                        <h1 class="text-center">{{ 'extra.empty'|trans}}</h1>
+                        <img src="https://i.kym-cdn.com/photos/images/original/001/043/243/419.gif"/>
+                    </div>
+                {% endif %}
                 {% for sneaker in sneakers |sort((a, b) => a.datePublish <=> b.datePublish) | reverse %}
                     <div class="col-12 col-md-4">
                         <div class="card cardCustom" style="margin: 0 0 65px 0;">
@@ -15,9 +21,9 @@
                                  src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ sneaker.nom }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} {{'common.ontlike'|trans}}</h6>
+                                <h6 class="card-subtitle mb-2  ">{{ sneaker.likeSneakers | length }} {{'common.ontlike'|trans}}</h6>
                                 <h5 class="card-text">{{ sneaker.price }}€</h5>
-                                <h5 class="card-text">{{ sneaker.datePublish | date("d/m/Y") }}</h5>
+                                <h5 class="card-text text-muted text-small">{{ sneaker.datePublish | date("d/m/Y") }}</h5>
                                 <a class="btn btn-primary" href="{{ path('add', {id:sneaker.id}) }}">{{ 'button.aimer'|trans }}</a>
                                 <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id}) }}">{{ 'button.commentaires'|trans }}</a>
                             </div>

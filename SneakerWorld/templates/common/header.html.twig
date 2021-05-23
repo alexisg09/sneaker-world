@@ -2,36 +2,109 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <button class="btn btn-sm btn-outline-secondary btnCustom">{{'header.bonjour'|trans}} {{ app.user.prenom }} !</button>
+                <button class="btn btn-sm logoutCustom">{{ 'header.bonjour'|trans }} {{ app.user.prenom }}
+                    !
+                </button>
             </div>
             <div class="col-4 text-center">
-                <h2 ><a href="{{ path('sneaker') }}" style="color: black">SneakerWorld</a></h2>
+                <h2><a href="{{ path('sneaker') }}" style="font-family: 'Spac3 tech'; color: #a651f9">Sneaker World</a>
+                </h2>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a style="margin: 0 65px 0 65px;" href="{{ path('app_liste_sneaker_users') }}"
-                   class="btn btn-sm btn-outline-secondary btnCustom">{{'header.voirListe'|trans}}</a>
-                <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-secondary btnCustom">
-                    {{'header.deconnexion'|trans}}
+                <a style="margin: 0 65px 0 65px;"
+                   href="{{ path('app_liste_sneaker_users', {'_locale': app.request.locale}) }}"
+                   class="btn btn-sm logoutCustom">{{ 'header.voirListe'|trans }}
                 </a>
+                <a href="{{ path('app_logout') }}" class="btn btn-sm logoutCustom">
+                    {{ 'header.deconnexion'|trans }}
+                </a>
+                <a
+                        class="btn btn-sm logoutCustom"
+                        id="theme-toggler"
+                        onclick="toggleTheme()"
+                        style="margin: 0 15px"
+                ></a>
             </div>
-
-
         </div>
     </header>
 
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="{{ path('sneaker_trend') }}"> {{ 'header.tendances'|trans}}</a>
-            <a class="p-2 text-muted" href="{{ path('nouveautes') }}"> {{ 'header.nouveautes'|trans}}</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Nike'}) }}">Nike</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Air_Jordan'}) }}">Jordan</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Adidas'}) }}">Adidas</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Asics'}) }}">Asics</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Converse'}) }}">Converse</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Puma'}) }}">Puma</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Reebok'}) }}">Reebok</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Vans'}) }}">Vans</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Lacoste'}) }}">Lacoste</a>
+            <a class="p-2 text-reset " style="color: inherit"
+               href="{{ path('sneaker_trend' , {'_locale': app.request.locale}) }}"> {{ 'header.tendances'|trans }}</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('nouveautes', {'_locale': app.request.locale}) }}"> {{ 'header.nouveautes'|trans }}</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Nike', '_locale': app.request.locale}) }}">Nike</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Air_Jordan', '_locale': app.request.locale}) }}">Jordan</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Adidas', '_locale': app.request.locale}) }}">Adidas</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Asics', '_locale': app.request.locale}) }}">Asics</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Converse', '_locale': app.request.locale}) }}">Converse</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Puma', '_locale': app.request.locale}) }}">Puma</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Reebok', '_locale': app.request.locale}) }}">Reebok</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Vans', '_locale': app.request.locale}) }}">Vans</a>
+            <a class="p-2 text-reset" style="color: inherit;"
+               href="{{ path('sneaker_marque', {'marque': 'Lacoste'}) }}">Lacoste</a>
         </nav>
     </div>
 </div>
+
+
+<script>
+    // you can use app's unique identifier here
+    const LOCAL_STORAGE_KEY = "toggle-bootstrap-theme";
+
+    const LOCAL_META_DATA = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+
+    // you can change this url as needed
+    const DARK_THEME_PATH = "https://bootswatch.com/4/cyborg/bootstrap.min.css";
+
+    const DARK_STYLE_LINK = document.getElementById("dark-theme-style");
+    const THEME_TOGGLER = document.getElementById("theme-toggler");
+
+    let isDark = LOCAL_META_DATA && LOCAL_META_DATA.isDark;
+
+    // check if user has already selected dark theme earlier
+    if (isDark) {
+        enableDarkTheme();
+    } else {
+        disableDarkTheme();
+    }
+
+
+    /**
+     * Apart from toggling themes, this will also store user's theme preference in local storage.
+     * So when user visits next time, we can load the same theme.
+     *
+     */
+    function toggleTheme() {
+        isDark = !isDark;
+        if (isDark) {
+            enableDarkTheme();
+        } else {
+            disableDarkTheme();
+        }
+        const META = {isDark};
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(META));
+    }
+
+    function enableDarkTheme() {
+        DARK_STYLE_LINK.setAttribute("href", DARK_THEME_PATH);
+        {# DARK_STYLE_LINK.setAttribute("href", {{asset('resources/css/bootstrapdark.min.css')}} ); #}
+
+        THEME_TOGGLER.innerHTML = "🌙";
+    }
+
+    function disableDarkTheme() {
+        DARK_STYLE_LINK.setAttribute("href", "");
+        THEME_TOGGLER.innerHTML = "🌞";
+    }
+
+</script>

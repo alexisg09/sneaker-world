@@ -15,7 +15,7 @@ button.modifsneaker: Edit a sneaker
 button.modifier: Edit
 button.retourliste: Back to list
 
-common.ontlike: like that
+common.ontlike: likes
 common.listecomm: Comment list
 common.dit: says
 common.enregister: Save
@@ -44,3 +44,6 @@ sneaker.stock: Stock
 sneaker.image: Image
 sneaker.modifier: Edit
 sneaker.supprimer: Delete
+
+extra.empty: It's empty here, wait for the admins to add shoes
+extra.emptylike: It's empty here, try liking some shoes to see them here !

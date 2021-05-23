@@ -19,7 +19,7 @@ button.retourliste: Retour à la liste
 common.ontlike: aiment ça
 common.listecomm: Liste des commentaires
 common.dit: dit
-common.enregister: Enregistrer
+common.enregistrer: Enregistrer
 common.loggedas: Vous êtes connecté sous le nom de
 common.nom: Nom
 common.prenom: Prénom
@@ -45,3 +45,6 @@ sneaker.stock: Stock
 sneaker.image: Image
 sneaker.modifier: Modifier
 sneaker.supprimer: Supprimer
+
+extra.empty: C'est bien vide ici, attendez que les admins ajoutent des chaussures
+extra.emptylike: C'est bien vide ici, likez des chaussures pour les voir apparaître ici !

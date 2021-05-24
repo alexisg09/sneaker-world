@@ -15,7 +15,6 @@
                     <th scope="col">{{ 'sneaker.stock'|trans }}</th>
                     <th scope="col">{{ 'sneaker.image'|trans }}</th>
                     <th scope="col">{{ 'sneaker.modifier'|trans }}</th>
-                    <th scope="col">{{ 'sneaker.supprimer'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,9 +29,6 @@
                              style="width: auto ; height: 200px; object-fit: cover;"></td>
                     <td><a href="{{ path('sneaker_modify_edit', {id:sneaker.id}) }} ">
                             <button class="btn btn-success">{{ 'sneaker.modifier'|trans }}</button>
-                        </a></td>
-                    <td><a href="{{ path('sneaker_modify_delete', {id:sneaker.id}) }}">
-                            <button class="btn btn-danger">{{ 'sneaker.supprimer'|trans }}</button>
                         </a></td>
                     {% endfor %}
                 </tbody>

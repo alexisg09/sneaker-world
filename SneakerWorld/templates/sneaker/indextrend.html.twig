@@ -28,7 +28,7 @@
                                         {{'common.ontlike'|trans}}</h6>
                                     <h5 class="card-text">{{ sneaker.price }}€</h5>
                                     <a class="btn btn-primary" href="{{ path('add', {id:sneaker.id}) }}">{{'button.aimer'|trans}}</a>
-                                    <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id}) }}">{{'button.commentaires'|trans}}</a>
+                                    <a class="btn btn-success" href="{{ path('comment.sneaker', {id:sneaker.id, '_locale': app.request.locale}) }}">{{'button.commentaires'|trans}}</a>
                                 </div>
                             </div>
                         </div>

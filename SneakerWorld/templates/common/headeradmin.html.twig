@@ -5,7 +5,7 @@
                 <a href="/admin" style="color: inherit;" class="display-5">{{ 'header.admin'|trans }}</a>
             </div>
             <div class="col-4 text-center">
-                <h2><a href="{{ path('sneaker') }}" style="font-family: 'Spac3 tech'; color: #a651f9">Sneaker World</a>
+                <h2><a href="{{ path('sneaker') }}" style="font-family: 'Spac3 tech'; color: #a651f9" class="btnCustom">Sneaker World</a>
                 </h2>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
@@ -37,18 +37,7 @@
         </nav>
     </div>
 </div>
-<div>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ariahaspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-globe"></span> <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            {% for key,locale in locales %}
-                <li><a href="{{ path(app.request.get('_route'),
-                        app.request.attributes.get('_route_params')|merge({'_locale': key})) }}">{{locale}}</a></li>
-            {% endfor %}
-        </ul>
-    </li>
-</div>
+
 
 <script>
     // you can use app's unique identifier here

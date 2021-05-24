@@ -46,9 +46,7 @@ class SneakerModifyController extends AbstractController
      */
     public function show(Sneaker $sneaker): Response
     {
-        return $this->render('sneaker_modify/show.html.twig', [
-            'sneaker' => $sneaker,
-        ]);
+        return $this->redirectToRoute('sneaker.list');
     }
 
     /**

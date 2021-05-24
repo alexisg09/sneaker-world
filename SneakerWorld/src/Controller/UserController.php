@@ -18,7 +18,7 @@ class UserController extends AbstractController
 {
     /**
      * Créer un nouveau user.
-     * @Route("/panel/ajouterUser", name="ajouterUser")
+     * @Route("{_locale}/panel/ajouterUser", name="ajouterUser")
      * @param UserPasswordEncoderInterface $encoder
      * @param Request $request
      * @param EntityManagerInterface $em

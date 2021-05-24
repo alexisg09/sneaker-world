@@ -2,28 +2,29 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <a class="btn btn-sm btn-outline-secondary btnCustom" href="{{ path('ajouterUser') }}">Rejoignez-nous !</a>
+                <a class="btn btn-sm btn-outline-secondary btnCustom" href="{{ path('ajouterUser', {'_locale': app.request.locale}) }}">{{ 'header.rejoignez'|trans }}</a>
             </div>
             <div class="col-4 text-center">
-                <h2><a href="{{ path('sneaker') }}" style="font-family: 'Spac3 tech'; color: #a651f9">Sneaker World</a></h2>
+                <h2><a style="font-family: 'Spac3 tech'; color: #a651f9" class="btnCustom">Sneaker World</a></h2>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a href="{{ path('app_login') }}" class="btn btn-sm btn-outline-secondary btnCustom" >Connexion</a>
+                <a href="{{ path('app_login', {'_locale': app.request.locale}) }}" class="btn btn-sm btn-outline-secondary btnCustom" >{{ 'header.connexion'|trans }}</a>
             </div>
         </div>
     </header>
 
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#">Tendances</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Nike'}) }}">Nike</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Air_Jordan'}) }}">Jordan</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Adidas'}) }}">Adidas</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Asics'}) }}">Asics</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Converse'}) }}">Converse</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Puma'}) }}">Puma</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Reebok'}) }}">Reebok</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Vans'}) }}">Vans</a>
-            <a class="p-2 text-muted" href="{{ path('sneaker_marque', {'marque': 'Lacoste'}) }}">Lacoste</a>
+            <a class="p-2 text-muted" href="#">{{ 'header.tendances'|trans }}</a>
+            <a class="p-2 text-muted" href="#">{{ 'header.nouveautes'|trans }}</a>
+            <a class="p-2 text-muted" href="">Nike</a>
+            <a class="p-2 text-muted" href="">Jordan</a>
+            <a class="p-2 text-muted" href="">Adidas</a>
+            <a class="p-2 text-muted" href="">Asics</a>
+            <a class="p-2 text-muted" href="">Converse</a>
+            <a class="p-2 text-muted" href="">Puma</a>
+            <a class="p-2 text-muted" href="">Reebok</a>
+            <a class="p-2 text-muted" href="">Vans</a>
+            <a class="p-2 text-muted" href="">Lacoste</a>
         </nav>
     </div>

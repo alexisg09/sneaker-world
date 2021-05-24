@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block body %}
         {% include './/common/notLoggedHeader.html.twig' %}
-
             <br><br>
             <div class="container">
                 <div class="row">
                     {% for sneaker in sneakers %}
                         <div class="col-12 col-md-4">
                             <div class="card" style="margin: 0 0 65px 0;">
-                                <img class="card-img-top" style="filter : blur(5px);"src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
+                                <img class="card-img-top"
+                                     width="auto"
+                                     height="200"
+                                     style="filter : blur(5px); width: auto ; height: 200px; object-fit: cover;"
+                                     src="{{ asset('uploads/image/' ~ sneaker.image) }}" alt="{{ sneaker.nom }}">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ sneaker.nom }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ sneaker.likeSneakers | length }} {{ 'common.ontlike'|trans }}</h6>

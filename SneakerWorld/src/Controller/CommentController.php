@@ -15,7 +15,7 @@ class CommentController extends AbstractController
 {
 
     /**
-     * @Route("/commentAdd{id}", name="comment.sneaker")
+     * @Route("{_locale}/commentAdd{id}", name="comment.sneaker")
      * @param Request $request
      * @param Sneaker $sneaker
      * @param EntityManagerInterface $em

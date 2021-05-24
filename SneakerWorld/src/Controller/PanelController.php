@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PanelController extends AbstractController
 {
     /**
-     * @Route("/panel", name="panel")
+     * @Route("{_locale}/panel", name="panel")
      */
     public function index(): Response
     {

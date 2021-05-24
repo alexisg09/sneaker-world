@@ -80,8 +80,15 @@ class SneakerModifyController extends AbstractController
      */
     public function delete(Request $request, Sneaker $sneaker): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$sneaker->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $sneaker->getId(), $request->request->get('_token'))) {
+
             $entityManager = $this->getDoctrine()->getManager();
+            foreach ($sneaker->getCommentSneaker() as $comment) {
+                $entityManager->remove($comment);
+            }
+            foreach ($sneaker->getlikeSneakers() as $like) {
+                $entityManager->remove($like);
+            }
             $entityManager->remove($sneaker);
             $entityManager->flush();
         }

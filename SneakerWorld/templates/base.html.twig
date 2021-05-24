@@ -32,11 +32,11 @@
 <body >
 {% block body %}{% endblock %}
 <div class="dropdown" style="margin: 50px 50px ">
-    <button class="btn btn-outline-secondary logoutCustom dropdown-toggle text-uppercase" type="button"
+    <button class="btn btn-outline-secondary btnCustom dropdown-toggle text-uppercase" type="button"
             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ app.request.locale }}
     </button>
-    <div class="dropdown-menu logoutCustom" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-menu btnCustom" aria-labelledby="dropdownMenuButton" style="margin-bottom: 10px">
         {% for key,locale in locales %}
             <a class="dropdown-item " href="{{ path(app.request.get('_route'),
                 app.request.attributes.get('_route_params')|merge({'_locale': key})) }}">{{ locale }}</a>

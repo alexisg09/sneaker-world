@@ -59,14 +59,10 @@ class UserController extends AbstractController
     {
         $sneakers = $this->getDoctrine()->getRepository(Sneaker::class)->findAll();
         $sneakerLike = [];
-        $notexists = false;
         foreach($sneakers as $sneaker ){
             $likes = $sneaker->getLikeSneakers();
             foreach($likes as $like){
                 if($like->getIdUser()->getId() == $this->getUser()->getId()){
-                    $notexists = true;
-                }
-                if($notexists){
                     $sneakerLike[] = $sneaker;
                 }
             }

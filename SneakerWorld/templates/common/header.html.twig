@@ -2,7 +2,7 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <button class="btn btn-sm logoutCustom">{{ 'header.bonjour'|trans }} {{ app.user.prenom }}
+                <button class="btn btn-sm btnCustom">{{ 'header.bonjour'|trans }} {{ app.user.prenom }}
                     !
                 </button>
             </div>
@@ -13,13 +13,13 @@
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <a style="margin: 0 65px 0 65px;"
                    href="{{ path('app_liste_sneaker_users', {'_locale': app.request.locale}) }}"
-                   class="btn btn-sm logoutCustom">{{ 'header.voirListe'|trans }}
+                   class="btn btn-sm btnCustom">{{ 'header.voirListe'|trans }}
                 </a>
-                <a href="{{ path('app_logout') }}" class="btn btn-sm logoutCustom">
+                <a href="{{ path('app_logout') }}" class="btn btn-sm btnCustom">
                     {{ 'header.deconnexion'|trans }}
                 </a>
                 <a
-                        class="btn btn-sm logoutCustom"
+                        class="btn btn-sm btnCustom"
                         id="theme-toggler"
                         onclick="toggleTheme()"
                         style="margin: 0 15px"
